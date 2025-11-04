@@ -1,3 +1,4 @@
+
 console.log('Hello World! This is №1 laboratory work on functional programming. ')
 
 startArray = [1,2,3,4,5,6];
@@ -34,7 +35,7 @@ const result = onlyEven(startArray)
 console.log(result);
 
 //Только квадраты
-function squareNums(arr) {  
+function squareNums(arr) {
     return arr.map(a=>a*a)
 }
 const result2 = squareNums(startArray)
@@ -47,9 +48,9 @@ function onlyOneProperty(objects, property) {
 
 const result3 = onlyOneProperty(startObjectsArray, 'isRed')
 const result4 = onlyOneProperty(startObjectsArray, 'isCat')
-console.log('Объекты со свойством isRed:') 
+console.log('Объекты со свойством isRed:')
 console.log(result3)
-console.log('Объекты со свойством isCat:') 
+console.log('Объекты со свойством isCat:')
 console.log(result4)
 
 //Сумма чисел массива
@@ -104,14 +105,14 @@ function averageNums(arr) {
     let sum = 0
 
     for(let i = 0; i < arr.length; i++) {
-        for (const key in arr[i]) {        
+        for (const key in arr[i]) {
             if (arr[i][key] > startValue) {
                 count += 1
                 sum += arr[i][key]
             }
         }
     }
-      
+
     return sum / count
 
 }
@@ -120,7 +121,7 @@ const r2 = averageNums(testObjects)
 console.log(r2);
 
 // arr.reduce( (acc, current) => current.values()
-// .reduce( (acc2, current2) => current2 > startValue ? acc2 + current2 : acc2 , 0) 
+// .reduce( (acc2, current2) => current2 > startValue ? acc2 + current2 : acc2 , 0)
 // ,0);
 
 // arr.map(obj => obj.values().map(el => el > startValue))
