@@ -63,13 +63,13 @@ function applyCurrentFilter() {
     }
 }
 function renderTasks(tasksToRender = tasks) {
-    container.innerHTML = ''; 
-    
+    container.innerHTML = '';
+
     tasksToRender.forEach(task => {
         const taskElement = document.createElement('div');
         taskElement.className = 'main__list__task';
         taskElement.setAttribute('data-id', task.id);
-        
+
         taskElement.innerHTML = `
             <p class="${task.isComplete ? 'completed' : ''}">${task.name}</p>
             <div>
@@ -77,17 +77,17 @@ function renderTasks(tasksToRender = tasks) {
                 <input type="checkbox" ${task.isComplete ? 'checked' : ''}>
             </div>
         `;
-        
+
         const deleteBtn = taskElement.querySelector('.delete-btn');
         const checkbox = taskElement.querySelector('input[type="checkbox"]');
-        
+
         deleteBtn.addEventListener('click', () => deleteTask(task.id));
         checkbox.addEventListener('change', () => toggleComplete(task.id));
-        
+
         container.appendChild(taskElement);
     });
     console.log(tasks);
-    
+
 }
 
 renderTasks();
