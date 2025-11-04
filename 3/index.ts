@@ -38,16 +38,18 @@ console.log('Объекты, отсортированные по возраст�
 console.log(result3);
 
 const result4 = sortByProperty(startObjectsArray, 'era');
-console.log('Объекты, отсортированные по score:');
+console.log('Объекты, отсортированные по era:');
 console.log(result4);
 
-function withLogging<F extends (...args: any[]) => any>(func: F): F {
-    return ((...args: Parameters<F>): ReturnType<F> => {
-        console.log(`Вызов функции ${func.name} с аргументами:`, args);
-        const result = func(...args);
-        console.log(`Функция ${func.name} вернула:`, result);
-        return result;
-    }) as F;
+function withLogging<F extends (...args: any[]) => any>(func: F): F
+{
+    return (
+        (...args: Parameters<F>): ReturnType<F> => {
+            console.log(`Вызов функции ${func.name} с аргументами:`, args);
+            const result = func(...args);
+            return result;
+        }
+    ) as F;
 }
 
 // Создаем версию функции onlyMultiples с логированием
@@ -55,12 +57,5 @@ const loggedOnlyMultiples = withLogging(onlyMultiples);
 const result5 = loggedOnlyMultiples(startArray, 3);
 console.log('Результат функции onlyMultiples с логированием:');
 console.log(result5);
-
-// Создаем версию функции joinStrings с логированием
-const loggedJoinStrings = withLogging(joinStrings);
-const result6 = loggedJoinStrings(startStringArray, ', ');
-console.log('Результат функции joinStrings с логированием:');
-console.log(result6);
-
 
 export {};

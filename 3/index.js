@@ -43,7 +43,7 @@ var result3 = sortByProperty(startObjectsArray, 'age');
 console.log('Объекты, отсортированные по возрасту:');
 console.log(result3);
 var result4 = sortByProperty(startObjectsArray, 'era');
-console.log('Объекты, отсортированные по score:');
+console.log('Объекты, отсортированные по era:');
 console.log(result4);
 function withLogging(func) {
     return (function () {
@@ -53,7 +53,6 @@ function withLogging(func) {
         }
         console.log("\u0412\u044B\u0437\u043E\u0432 \u0444\u0443\u043D\u043A\u0446\u0438\u0438 ".concat(func.name, " \u0441 \u0430\u0440\u0433\u0443\u043C\u0435\u043D\u0442\u0430\u043C\u0438:"), args);
         var result = func.apply(void 0, args);
-        console.log("\u0424\u0443\u043D\u043A\u0446\u0438\u044F ".concat(func.name, " \u0432\u0435\u0440\u043D\u0443\u043B\u0430:"), result);
         return result;
     });
 }
@@ -62,8 +61,3 @@ var loggedOnlyMultiples = withLogging(onlyMultiples);
 var result5 = loggedOnlyMultiples(startArray, 3);
 console.log('Результат функции onlyMultiples с логированием:');
 console.log(result5);
-// Создаем версию функции joinStrings с логированием
-var loggedJoinStrings = withLogging(joinStrings);
-var result6 = loggedJoinStrings(startStringArray, ', ');
-console.log('Результат функции joinStrings с логированием:');
-console.log(result6);
